@@ -1,0 +1,23 @@
+[Unit]
+Description=Consul server
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=consul
+Group=consul
+RuntimeDirectory=consul
+ExecStart=/usr/bin/consul agent -config-dir /etc/consul.d/ -config-dir /etc/consul.d/services
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+KillSignal=SIGTERM
+Restart=on-failure
+RestartSec=42s
+StandardOutput=file:/var/log/consul.d/server-output.log
+StandardError=file:/var/log/consul.d/server-errors.log
+SyslogIdentifier=consul
+PIDFile=/var/run/consul.d/consul-server.pid
+
+
+[Install]
+WantedBy=multi-user.target

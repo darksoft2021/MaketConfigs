@@ -1,0 +1,42 @@
+# ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+# Use a descriptive name for your cluster:
+cluster.name: darksoft2021
+# ------------------------------------ Node ------------------------------------
+# Use a descriptive name for the node:
+node.name: es-node01
+node.roles: [ master, data ]
+# Add custom attributes to the node: #node.attr.rack: r1
+# ----------------------------------- Paths ------------------------------------
+# Path to directory where to store the data (separate multiple locations by comma):
+path.data: /var/lib/elasticsearch
+# Path to log files:
+path.logs: /var/log/elasticsearch
+# ----------------------------------- Memory -----------------------------------
+# Lock the memory on startup:
+#bootstrap.memory_lock: true
+# ---------------------------------- Network -----------------------------------
+#network.host: 192.168.0.230
+network.host: 0.0.0.0
+http.port: 9200
+transport.host: 192.168.0.230          # Адрес для связи с кластером
+transport.tcp.port: 9300-9400   	# Порты для коммуникации внутри кластера
+# --------------------------------- Discovery ----------------------------------
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]
+#discovery.seed_hosts: ["192.168.0.230"]
+discovery.seed_providers: file
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+cluster.initial_master_nodes: ["es-node01","es-node02","es-node03"]
+#xpack.security.enabled: true

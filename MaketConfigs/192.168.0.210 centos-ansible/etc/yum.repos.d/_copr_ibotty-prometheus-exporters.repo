@@ -1,0 +1,10 @@
+[copr:copr.fedorainfracloud.org:ibotty:prometheus-exporters]
+name=Copr repo for prometheus-exporters owned by ibotty
+baseurl=https://download.copr.fedorainfracloud.org/results/ibotty/prometheus-exporters/epel-8-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/ibotty/prometheus-exporters/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1

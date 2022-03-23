@@ -1,0 +1,18 @@
+[Unit]
+Description=Node Exporter Service
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/sbin/node_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+StandardOutput=file:/var/log/node_exporter/node_exporter.log
+StandardError=file:/var/log/node_exporter/node_exporter-errors.log
+SyslogIdentifier=node_exporter
+PIDFile=/var/run/node_exporter/node_exporter.pid
+
+[Install]
+WantedBy=multi-user.target
