@@ -1,0 +1,25 @@
+[Unit]
+Description=Alertmanager Service
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/alertmanager
+User=alertmanager
+Group=alertmanager
+Type=simple
+ExecStart=/usr/local/bin/alertmanager \
+          --config.file=/etc/alertmanager/alertmanager.yml \
+          --storage.path=/var/lib/prometheus/alertmanager \
+          $ALERTMANAGER_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+KillMode=process
+KillSignal=SIGTERM
+RestartSec=42s
+StandardOutput=file:/var/log/alertmanager/output.log
+StandardError=file:/var/log/alertmanager/errors.log
+SyslogIdentifier=alertmanager
+PIDFile=/var/run/alertmanager/alertmanager.pid
+
+[Install]
+WantedBy=multi-user.target

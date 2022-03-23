@@ -1,0 +1,18 @@
+# Sample config for Prometheus.
+- targets:
+    - 192.168.0.122:9100
+  labels:
+    os: 'linux'
+    family: 'Ubuntu'
+    role: 'servers'
+    services: LAMP
+    env: Prod
+
+- targets:
+    - 192.168.0.212:9100
+  labels:
+    os: 'linux'
+    family: 'Centos'
+    role: 'servers'
+    services: LAMP
+    env: Test

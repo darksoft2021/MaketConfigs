@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.0.122 ubuntu-lamp ubuntu-lamp.darksoft.loc
+192.168.0.210 centos-ansible centos-ansible.darksoft.loc
+192.168.0.211 db db.darksoft.loc
+192.168.0.212 centos-lamp centos-lamp.darksoft.loc
+192.168.0.213 lxc lxc.darksoft.loc
+192.168.0.239 win.darksoft.loc
+192.168.0.215 ubuntu-main ubuntu-main.darksoft.loc
+192.168.0.230 ubuntu-docker ubuntu-docker.darksoft.loc
